@@ -3,8 +3,8 @@
 }
 
 body {
-    width: 100%;  /* 100% width of the container */
-    height: 100vh;  /* Full height of the viewport */
+    width: 200px;  /* 100% width of the container */
+    height: 200px;  /* Full height of the viewport */
     margin: 0; /* Remove default margins */
     padding: 0;
     font-family: system-ui;

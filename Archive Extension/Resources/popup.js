@@ -3,8 +3,12 @@ document.getElementById("open-url").addEventListener("click", async () => {
         const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
         if (tab && tab.url) {
             console.log("Current URL:", tab.url);
-            document.getElementById("output").innerText = "Current URL: " + tab.url;
-            browser.tabs.create({ url: "https://archive.ph/" + tab.url });
+            document.getElementById("output").innerText = tab.url;
+            
+            const url = new URL(tab.url);
+            const cleanUrl = url.origin + url.pathname;
+
+            browser.tabs.create({ url: `https://archive.ph/${cleanUrl}` });
         } else {
             console.log("No active tab found.");
         }
